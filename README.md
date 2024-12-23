@@ -1,1 +1,1 @@
-# calculator
+12/23/2024 5:54 PM: In this project, I will be showing my basic JavaScript skills by making a simple calculator.
