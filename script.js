@@ -1,29 +1,40 @@
 function operate(operator, num1, num2){
-
+    let result;
+    if(operator=='+')
+        result=add(num1, num2);
+    else if(operator=='-')
+        result=subtract(num1, num2);
+    else if(operator=='*')
+        result=subtract(num1, num2);
+    else if(operator=='/')
+        result=subtract(num1, num2);
+    return result;
 }
 
 function add(num1, num2){
-
+    return num1+num2;
 }
 
 function subtract(num1, num2){
-    
+    return num1-num2;
 }
 
 function multiply(num1, num2){
-    
+    return num1*num2;
 }
 
 function divide(num1, num2){
-    
+    let result=num1/num2;
+    result=result.toFixed(4);
 }
 
 function display(display, expression){
-
+    let displayArr=expression.join(' ');
+    display.textContent=displayArr;
 }
 
 function displayResult(display, result){
-
+    display.textContent=result;
 }
 
 function opCheck(expression){ //returns true if last char is operator
@@ -157,7 +168,7 @@ buttons.addEventListener("click", (event) => {
 });
 
 let opbuttons=document.querySelector(".opButtons");
-buttons.addEventListener("click", (event) => {
+opbuttons.addEventListener("click", (event) => {
     let target=event.target;
     if(target.classList.contains('btnP')){
         if(!opCheck(expression) && expression.length==1){
@@ -189,9 +200,9 @@ buttons.addEventListener("click", (event) => {
     }
     else if(target.classList.contains('btnE')){
         if(expression.length==3){
-            num1=parseInt(expression[0]);
+            num1=Number(expression[0]);
             operator=expression[1];
-            num2=parseInt(expression[2]);
+            num2=Number(expression[2]);
             result=operate(operator, num1, num2);
             result=String(result);
             displayResult(display, result);
